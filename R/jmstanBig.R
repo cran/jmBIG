@@ -15,6 +15,7 @@
 #' @export
 #' @references Goodrich, B., et al. "rstanarm: Bayesian applied regression modeling via Stan. R package version 2.17. 4." Online< http://mc-stan. org (2018).
 #' @examples
+#'
 #'  \donttest{
 #' ##
 #' library(survival)
@@ -26,7 +27,7 @@
 #' pp2<-plot(P2$p1[[2]],plot_observed = TRUE)
 #' pp3<-plot(P2$p1[[3]],plot_observed = TRUE)
 #' ##
-#'    }
+#' }
 #'
 #' @author Atanu Bhattacharjee, Bhrigu Kumar Rajbongshi and Gajendra Kumar Vishwakarma
 #' @seealso   \link{jmbayesBig},\link{jmcsBig},\link{joinRMLBig}

@@ -35,7 +35,7 @@ library(dplyr)
 fit2<-jmcsBig(dtlong=data.frame(long2),dtsurv = data.frame(surv2),
 longm=y~ x7+visit,survm=Surv(time,status)~x1+visit,rd= ~ visit|id,samplesize=200,id='id')
 P2<-survfitJMCS(model<-fit2,ids<-c(400),estimator = 'median')
-pp1<-plot(P2$p1[[1]],estimator="both",include.y = TRUE)
+plot(P2$p1[[1]],estimator="both",include.y = TRUE)
 ##
   }
 

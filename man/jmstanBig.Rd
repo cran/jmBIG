@@ -42,6 +42,7 @@ returns a list containing various output which are useful for prediction.
 function for joint model in BIG DATA using \link{rstanarm} package
 }
 \examples{
+
  \donttest{
 ##
 library(survival)
@@ -53,7 +54,7 @@ pp1<-plot(P2$p1[[1]],plot_observed = TRUE)
 pp2<-plot(P2$p1[[2]],plot_observed = TRUE)
 pp3<-plot(P2$p1[[3]],plot_observed = TRUE)
 ##
-   }
+}
 
 }
 \references{

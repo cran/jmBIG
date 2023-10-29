@@ -22,6 +22,7 @@ prints table containing various parameter estimates,
 print.jmstanBig
 }
 \examples{
+
  \donttest{
 ##
 library(survival)
@@ -33,6 +34,5 @@ mod1<-jmstanBig(dtlong=long2,
          samplesize=200,
          time_var='visit',id='id')
 print(mod1)
-
-   }
+}
 }

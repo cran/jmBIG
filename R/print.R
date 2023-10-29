@@ -10,6 +10,7 @@
 #' @export
 #'
 #' @examples
+#'
 #'  \donttest{
 #' ##
 #' library(survival)
@@ -29,7 +30,7 @@
 #' fit10<-joinRMLBig(dtlong=long2,dtsurv = surv2,
 #' longm=y~ x7+visit,survm=Surv(time,status)~x1+visit,
 #' rd=~ visit|id,timeVar='visit',samplesize=200,id='id')
-#'    }
+#' }
 print<-function(object,...){
   UseMethod("print",object)
 }
@@ -48,6 +49,7 @@ print<-function(object,...){
 #' @export
 #'
 #' @examples
+#'
 #'  \donttest{
 #' ##
 #' library(survival)
@@ -59,11 +61,11 @@ print<-function(object,...){
 #'          samplesize=200,
 #'          time_var='visit',id='id')
 #' print(mod1)
-#'
-#'    }
+#' }
 #' @method print jmstanBig
 print.jmstanBig<-function(object,digits=3,...){
   x<-object
+  digits<-digits
   if(!inherits(x,'jmstanBig'))
     stop("\n Not a 'jmstanBig' object.\n")
 
@@ -103,7 +105,7 @@ print.jmstanBig<-function(object,digits=3,...){
 
   cat('Random effects covariance matrix:\n')
   D<-VarCorr(x$pseudoMod)
-  D<-round(D,digits=digits)
+  #D<-round(D,digits=digits)
   print(D)
 
   invisible(x)
@@ -140,6 +142,7 @@ print.jmstanBig<-function(object,digits=3,...){
 #' @method print jmcsBig
 print.jmcsBig<-function(object,digits=3,...){
   x<-object
+  digits<-digits
   if(!inherits(x,'jmcsBig'))
     stop("\n Not a 'jmcsBig' object.\n")
   cat("\n Joint model for Big data using FastJM")
@@ -239,6 +242,7 @@ print.jmcsBig<-function(object,digits=3,...){
 #' @method print jmbayesBig
 print.jmbayesBig<-function(object,digits=4,...){
   x<-object
+  digits<-digits
   if(!inherits(x,'jmbayesBig'))
     stop("\n Not a 'jmbayesBig' object.\n")
 
@@ -276,7 +280,7 @@ print.jmbayesBig<-function(object,digits=4,...){
   print(sdat)
   cat('\n Random effects covariance matrix:\n')
   D<-x$pseudoMod$statistics$Mean$D
-  D<-round(D,digits=digits)
+  #D<-round(D,digits=digits)
   print(D)
 
   invisible(x)
@@ -312,6 +316,7 @@ print.jmbayesBig<-function(object,digits=4,...){
 #' @method print joinRMLBig
 print.joinRMLBig<-function(object,digits=4,...){
   x<-object
+  digits<-digits
   if(!inherits(x,'joinRMLBig'))
     stop("\n Not a 'joinRMLBig' object.\n")
   cat("\n Joint model for Big data using joineRML")

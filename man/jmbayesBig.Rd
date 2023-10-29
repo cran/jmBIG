@@ -60,7 +60,7 @@ ydt<-long2\%>\%filter(id\%in\%c(900))
 cdt<-surv2[,'id']\%>\%filter(id\%in\%c(900))
 newdata<-full_join(ydt,cdt,by='id')
 P2<-predJMbayes(model<-fit5,ids<-c(900),newdata=newdata,process = 'event')
-pp1<-plot(P2$p1[[1]])
+plot(P2$p1[[1]])
 ##
 }
 }

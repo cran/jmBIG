@@ -20,6 +20,7 @@ prints table containing various parameter estimates,
 print
 }
 \examples{
+
  \donttest{
 ##
 library(survival)
@@ -39,5 +40,5 @@ rd= ~ visit|id,timeVar='visit',nchain=1,samplesize=200,id='id')
 fit10<-joinRMLBig(dtlong=long2,dtsurv = surv2,
 longm=y~ x7+visit,survm=Surv(time,status)~x1+visit,
 rd=~ visit|id,timeVar='visit',samplesize=200,id='id')
-   }
+}
 }
