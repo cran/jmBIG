@@ -19,7 +19,7 @@ prints table containing various parameter estimates,
         if the model is bayesian it includes their credible interval too.
 }
 \description{
-print.joinRMLBig
+print method for class 'joinRMLBig'
 }
 \examples{
  \donttest{

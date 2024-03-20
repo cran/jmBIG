@@ -37,6 +37,8 @@ print<-function(object,...){
 
 
 #' @title  print.jmstanBig
+#' @description
+#' print method for class 'jmstanBig'
 #'
 #' @param object object
 #' @param digits used for round the numeric values after decimal
@@ -114,6 +116,8 @@ print.jmstanBig<-function(object,digits=3,...){
 
 
 #' @title  print.jmcsBig
+#' @description
+#' print method for class 'jmcsBig'
 #'
 #' @param object object
 #' @param digits used for round the numeric values after decimal
@@ -211,6 +215,8 @@ print.jmcsBig<-function(object,digits=3,...){
 
 
 #' @title  print.jmbayesBig
+#' @description
+#' print method for class 'jmbayesBig'
 #'
 #' @param object object
 #' @param digits used for round the numeric values after decimal
@@ -287,6 +293,8 @@ print.jmbayesBig<-function(object,digits=4,...){
 }
 
 #' @title  print.joinRMLBig
+#' @description
+#' print method for class 'joinRMLBig'
 #'
 #' @param object object
 #' @param digits used for round the numeric values after decimal
@@ -371,4 +379,27 @@ print.joinRMLBig<-function(object,digits=4,...){
   rdat<-round(rdat,digits=digits)
   print(rdat)
   invisible(x)
+}
+
+
+#' @export
+#' @method print survfitJMCS
+print.survfitJMCS<-function(object,...){
+  object<-object
+  if(!inherits(object,"survfitJMCS"))
+    stop("\n Not a 'survfitJMCS' object.\n")
+
+  print(object$P1)
+  invisible(object)
+}
+
+#' @export
+#' @method print cisurvfitJMCS
+print.cisurvfitJMCS<-function(object,...){
+  object<-object
+  if(!inherits(object,"cisurvfitJMCS"))
+    stop("\n Not a 'cisurvfitJMCS' object.\n")
+  cat("\n Predicted survival proability data\n")
+  print(object$bootCI)
+  invisible(object)
 }

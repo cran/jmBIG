@@ -19,7 +19,7 @@ prints table containing various parameter estimates,
         if the model is bayesian it includes their credible interval too.
 }
 \description{
-print.jmstanBig
+print method for class 'jmstanBig'
 }
 \examples{
 

@@ -2,7 +2,7 @@
 % Please edit documentation in R/prediction.R
 \name{predJRML}
 \alias{predJRML}
-\title{predJRML}
+\title{Prediction using \code{joineRML}}
 \usage{
 predJRML(model, ids, dtlong, dtsurv)
 }
@@ -19,7 +19,7 @@ predJRML(model, ids, dtlong, dtsurv)
 list of predicted values for the given id
 }
 \description{
-prediction of survival probability and longitudinal marker using joineRML for BIG data
+prediction of survival probability and longitudinal marker using \code{joineRML} for BIG data
 }
 \examples{
    \donttest{
@@ -36,8 +36,8 @@ samplesize=200,
 id='id')
 mod4<-jmcs1
 P2<-predJRML(model<-mod4,ids<-c(10),dtlong=long2,dtsurv=surv2)
-pp1<-plot(P2$plong[[1]])
-pp1<-plot(P2$psurv[[1]])
+plot(P2$plong[[1]])
+plot(P2$psurv[[1]])
 ##
    }
 }
