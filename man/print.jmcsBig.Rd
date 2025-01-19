@@ -4,12 +4,10 @@
 \alias{print.jmcsBig}
 \title{print.jmcsBig}
 \usage{
-\method{print}{jmcsBig}(object, digits = 3, ...)
+\method{print}{jmcsBig}(x, ...)
 }
 \arguments{
-\item{object}{object}
-
-\item{digits}{used for round the numeric values after decimal}
+\item{x}{fitted object}
 
 \item{...}{others}
 }

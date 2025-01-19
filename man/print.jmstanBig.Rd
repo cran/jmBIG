@@ -4,12 +4,10 @@
 \alias{print.jmstanBig}
 \title{print.jmstanBig}
 \usage{
-\method{print}{jmstanBig}(object, digits = 3, ...)
+\method{print}{jmstanBig}(x, ...)
 }
 \arguments{
-\item{object}{object}
-
-\item{digits}{used for round the numeric values after decimal}
+\item{x}{fitted object}
 
 \item{...}{others}
 }

@@ -4,12 +4,10 @@
 \alias{print.jmbayesBig}
 \title{print.jmbayesBig}
 \usage{
-\method{print}{jmbayesBig}(object, digits = 4, ...)
+\method{print}{jmbayesBig}(x, ...)
 }
 \arguments{
-\item{object}{object}
-
-\item{digits}{used for round the numeric values after decimal}
+\item{x}{fitted object}
 
 \item{...}{others}
 }

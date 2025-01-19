@@ -251,6 +251,7 @@ predJMbayes<-function(model,ids,process='longitudinal',newdata,...){
 #' @param ids value of id
 #' @param dtlong longitudinal data
 #' @param dtsurv survival data
+#' @param ... other parameter options, see \code{dynSurv}
 #' @return list of predicted values for the given id
 #' @importFrom joineRML dynLong dynSurv
 #' @importFrom dplyr arrange desc starts_with ends_with
@@ -274,7 +275,7 @@ predJMbayes<-function(model,ids,process='longitudinal',newdata,...){
 #' plot(P2$psurv[[1]])
 #' ##
 #'    }
-predJRML<-function(model,ids,dtlong,dtsurv){
+predJRML<-function(model,ids,dtlong,dtsurv,...){
   model<-model;ids<-ids
   nlength<-ids
   mlist<-list()
@@ -288,7 +289,7 @@ predJRML<-function(model,ids,dtlong,dtsurv){
     #ND<-full_join(ydata,cdata,by='id')
     p1[[k]]<-dynLong(Mod11,
                      newdata=ydata)
-    p2[[k]]<-dynSurv(Mod11,newdata=ydata,newSurvData=cdata,type='simulated')
+    p2[[k]]<-dynSurv(Mod11,newdata=ydata,newSurvData=cdata,type='simulated',...)
   }
 
   P1<-Reduce('rbind',p1)
@@ -462,4 +463,3 @@ utils::globalVariables(c('ggplot',
                          'aes','Times',
                          'geom_line','Med','geom_line',
                          'geom_ribbon','LL','UL','labs',''))
-

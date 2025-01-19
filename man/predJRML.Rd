@@ -4,7 +4,7 @@
 \alias{predJRML}
 \title{Prediction using \code{joineRML}}
 \usage{
-predJRML(model, ids, dtlong, dtsurv)
+predJRML(model, ids, dtlong, dtsurv, ...)
 }
 \arguments{
 \item{model}{fitted model object}
@@ -14,6 +14,8 @@ predJRML(model, ids, dtlong, dtsurv)
 \item{dtlong}{longitudinal data}
 
 \item{dtsurv}{survival data}
+
+\item{...}{other parameter options, see \code{dynSurv}}
 }
 \value{
 list of predicted values for the given id

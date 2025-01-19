@@ -4,12 +4,10 @@
 \alias{print.joinRMLBig}
 \title{print.joinRMLBig}
 \usage{
-\method{print}{joinRMLBig}(object, digits = 4, ...)
+\method{print}{joinRMLBig}(x, ...)
 }
 \arguments{
-\item{object}{object}
-
-\item{digits}{used for round the numeric values after decimal}
+\item{x}{fitted object}
 
 \item{...}{others}
 }

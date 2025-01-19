@@ -1,47 +1,10 @@
 
-#' @title  print
-#'
-#' @param object object
-#' @param ... others
-#'
-#' @return prints table containing various parameter estimates,
-#'         SE, P- value for both survival and longitudinal submodel,
-#'         if the model is bayesian it includes their credible interval too.
-#' @export
-#'
-#' @examples
-#'
-#'  \donttest{
-#' ##
-#' library(survival)
-#' library(dplyr)
-#' fit7<-jmstanBig(dtlong=long2,dtsurv = surv2,longm=y~ x7+visit+(1|id),
-#' survm=Surv(time,status)~x1+visit,samplesize=200,time_var='visit',id='id')
-#' ################################
-#' fit8<-jmcsBig(dtlong=data.frame(long2),dtsurv = data.frame(surv2),
-#' longm=y~ x7+visit,survm=Surv(time,status)~x1+visit,rd= ~ visit|id,
-#' samplesize=200,id='id')
-#' #################################
-#' fit9<-jmbayesBig(dtlong=long2,dtsurv = surv2 ,
-#' longm=y~ x7+visit,survm=Surv(time,status)~x1+visit,
-#' rd= ~ visit|id,timeVar='visit',nchain=1,samplesize=200,id='id')
-#' #################################
-#'
-#' fit10<-joinRMLBig(dtlong=long2,dtsurv = surv2,
-#' longm=y~ x7+visit,survm=Surv(time,status)~x1+visit,
-#' rd=~ visit|id,timeVar='visit',samplesize=200,id='id')
-#' }
-print<-function(object,...){
-  UseMethod("print",object)
-}
-
 
 #' @title  print.jmstanBig
 #' @description
 #' print method for class 'jmstanBig'
 #'
-#' @param object object
-#' @param digits used for round the numeric values after decimal
+#' @param x fitted object
 #' @param ... others
 #'
 #' @return prints table containing various parameter estimates,
@@ -65,9 +28,9 @@ print<-function(object,...){
 #' print(mod1)
 #' }
 #' @method print jmstanBig
-print.jmstanBig<-function(object,digits=3,...){
-  x<-object
-  digits<-digits
+print.jmstanBig<-function(x,...){
+  #x<-object
+  digits<-3
   if(!inherits(x,'jmstanBig'))
     stop("\n Not a 'jmstanBig' object.\n")
 
@@ -119,8 +82,7 @@ print.jmstanBig<-function(object,digits=3,...){
 #' @description
 #' print method for class 'jmcsBig'
 #'
-#' @param object object
-#' @param digits used for round the numeric values after decimal
+#' @param x fitted object
 #' @param ... others
 #'
 #' @return prints table containing various parameter estimates,
@@ -144,9 +106,9 @@ print.jmstanBig<-function(object,digits=3,...){
 #' print(mod2)
 #'    }
 #' @method print jmcsBig
-print.jmcsBig<-function(object,digits=3,...){
-  x<-object
-  digits<-digits
+print.jmcsBig<-function(x,...){
+  #x<-object
+  digits<-3
   if(!inherits(x,'jmcsBig'))
     stop("\n Not a 'jmcsBig' object.\n")
   cat("\n Joint model for Big data using FastJM")
@@ -218,8 +180,7 @@ print.jmcsBig<-function(object,digits=3,...){
 #' @description
 #' print method for class 'jmbayesBig'
 #'
-#' @param object object
-#' @param digits used for round the numeric values after decimal
+#' @param x fitted object
 #' @param ... others
 #'
 #' @return prints table containing various parameter estimates,
@@ -246,9 +207,9 @@ print.jmcsBig<-function(object,digits=3,...){
 #' print(mod3)
 #'    }
 #' @method print jmbayesBig
-print.jmbayesBig<-function(object,digits=4,...){
-  x<-object
-  digits<-digits
+print.jmbayesBig<-function(x,...){
+  #x<-object
+  digits<-3
   if(!inherits(x,'jmbayesBig'))
     stop("\n Not a 'jmbayesBig' object.\n")
 
@@ -296,8 +257,7 @@ print.jmbayesBig<-function(object,digits=4,...){
 #' @description
 #' print method for class 'joinRMLBig'
 #'
-#' @param object object
-#' @param digits used for round the numeric values after decimal
+#' @param x fitted object
 #' @param ... others
 #'
 #' @return prints table containing various parameter estimates,
@@ -322,9 +282,9 @@ print.jmbayesBig<-function(object,digits=4,...){
 #' print(mod4)
 #'    }
 #' @method print joinRMLBig
-print.joinRMLBig<-function(object,digits=4,...){
-  x<-object
-  digits<-digits
+print.joinRMLBig<-function(x,...){
+  #x<-object
+  digits<-3
   if(!inherits(x,'joinRMLBig'))
     stop("\n Not a 'joinRMLBig' object.\n")
   cat("\n Joint model for Big data using joineRML")
@@ -384,8 +344,8 @@ print.joinRMLBig<-function(object,digits=4,...){
 
 #' @export
 #' @method print survfitJMCS
-print.survfitJMCS<-function(object,...){
-  object<-object
+print.survfitJMCS<-function(x,...){
+  object<-x
   if(!inherits(object,"survfitJMCS"))
     stop("\n Not a 'survfitJMCS' object.\n")
 
@@ -395,8 +355,8 @@ print.survfitJMCS<-function(object,...){
 
 #' @export
 #' @method print cisurvfitJMCS
-print.cisurvfitJMCS<-function(object,...){
-  object<-object
+print.cisurvfitJMCS<-function(x,...){
+  object<-x
   if(!inherits(object,"cisurvfitJMCS"))
     stop("\n Not a 'cisurvfitJMCS' object.\n")
   cat("\n Predicted survival proability data\n")
